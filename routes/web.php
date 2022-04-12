@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/sample/{id}', function ($id) {
+    echo $id;
+    return view('sample', ['name'=>'xx']);
+});
+
+Route::view('/sampleB','sample', ['name'=>'sample B']);
+Route::view('/example','example',['x'=>69]);
+
+Route::resource('/users', UsersController::class);
+
+Route::view('submitform','user', ['name'=>'submit lesson']);
+
+//Route::get('usercontroller', 'UsersController@store');
+
